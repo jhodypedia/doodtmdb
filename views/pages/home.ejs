@@ -1,0 +1,33 @@
+<section class="space-y-5">
+  <div class="flex items-end justify-between gap-3">
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight" data-aos="fade-up">
+        Explore Film
+      </h1>
+      <p class="text-zinc-400 text-sm mt-1" data-aos="fade-up" data-aos-delay="60">
+        Infinite scroll, super cepat, clean UI.
+      </p>
+    </div>
+
+    <div class="hidden sm:flex gap-2">
+      <button id="btnRefresh" class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition">
+        Refresh
+      </button>
+    </div>
+  </div>
+
+  <!-- Middle Ad -->
+  <% if (settings && settings.ad_banner_middle && settings.ad_banner_middle.trim()) { %>
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-3 overflow-hidden" data-aos="zoom-in">
+      <%- settings.ad_banner_middle %>
+    </div>
+  <% } %>
+
+  <div id="grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4"></div>
+
+  <div id="sentinel" class="h-16"></div>
+
+  <div id="endState" class="hidden text-center text-zinc-500 text-sm py-8">
+    Sudah habis ✅
+  </div>
+</section>
