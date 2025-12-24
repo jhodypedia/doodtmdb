@@ -1,0 +1,38 @@
+<div class="flex items-center justify-between gap-2">
+  <h1 class="text-2xl font-semibold">Settings</h1>
+  <div class="flex gap-2">
+    <a href="/admin" class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition">Dashboard</a>
+    <a href="/admin/movies" class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition">Movies</a>
+  </div>
+</div>
+
+<form class="mt-6 space-y-4" method="POST" action="/admin/settings">
+  <div class="rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6 space-y-3">
+    <div class="font-semibold">Branding</div>
+    <input name="site_name" value="<%= settings.site_name || '' %>" placeholder="Site Name"
+      class="w-full rounded-2xl border border-white/10 bg-zinc-950/40 px-4 py-3 outline-none"/>
+    <textarea name="site_desc" rows="2" placeholder="Site Description"
+      class="w-full rounded-2xl border border-white/10 bg-zinc-950/40 px-4 py-3 outline-none"><%= settings.site_desc || '' %></textarea>
+  </div>
+
+  <div class="rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6 space-y-3">
+    <div class="font-semibold">Embed</div>
+    <div class="text-sm text-zinc-400">Gunakan <code class="px-2 py-1 rounded bg-white/10">{ID}</code> sebagai placeholder.</div>
+    <input name="embed_template" value="<%= settings.embed_template || '' %>" placeholder="https://doodstream.com/e/{ID}"
+      class="w-full rounded-2xl border border-white/10 bg-zinc-950/40 px-4 py-3 outline-none"/>
+  </div>
+
+  <div class="rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-6 space-y-3">
+    <div class="font-semibold">Adsterra Banner Slots (HTML)</div>
+    <textarea name="ad_banner_top" rows="4" placeholder="Top banner HTML"
+      class="w-full rounded-2xl border border-white/10 bg-zinc-950/40 px-4 py-3 outline-none"><%= settings.ad_banner_top || '' %></textarea>
+    <textarea name="ad_banner_middle" rows="4" placeholder="Middle banner HTML"
+      class="w-full rounded-2xl border border-white/10 bg-zinc-950/40 px-4 py-3 outline-none"><%= settings.ad_banner_middle || '' %></textarea>
+    <textarea name="ad_banner_bottom" rows="4" placeholder="Bottom banner HTML"
+      class="w-full rounded-2xl border border-white/10 bg-zinc-950/40 px-4 py-3 outline-none"><%= settings.ad_banner_bottom || '' %></textarea>
+  </div>
+
+  <button class="w-full sm:w-auto rounded-2xl bg-white text-zinc-900 font-semibold px-6 py-3 hover:opacity-90 transition">
+    Save
+  </button>
+</form>
