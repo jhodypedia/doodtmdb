@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include("partials/head", { meta: meta || {}, settings: settings || {} }) %>
+</head>
+<body class="min-h-screen bg-zinc-950 text-zinc-100 antialiased overflow-x-hidden">
+
+  <div id="bgFX" class="pointer-events-none fixed inset-0 opacity-70">
+    <div class="absolute -top-40 -left-40 h-96 w-96 rounded-full blur-3xl bg-fuchsia-600/25"></div>
+    <div class="absolute top-40 -right-40 h-96 w-96 rounded-full blur-3xl bg-cyan-500/20"></div>
+    <div class="absolute bottom-[-10rem] left-1/2 -translate-x-1/2 h-[28rem] w-[28rem] rounded-full blur-3xl bg-emerald-500/15"></div>
+  </div>
+
+  <%- include("partials/navbar", { settings: settings || {} }) %>
+
+  <!-- Top Ad (from admin) -->
+  <% if (settings && settings.ad_banner_top && settings.ad_banner_top.trim()) { %>
+    <div class="mx-auto max-w-7xl px-3 sm:px-6 mt-3" data-aos="fade-down">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-3 overflow-hidden">
+        <%- settings.ad_banner_top %>
+      </div>
+    </div>
+  <% } %>
+
+  <main id="app" class="mx-auto max-w-7xl px-3 sm:px-6 pt-5 pb-24">
+    <%- body %>
+  </main>
+
+  <!-- Bottom Ad -->
+  <% if (settings && settings.ad_banner_bottom && settings.ad_banner_bottom.trim()) { %>
+    <div class="mx-auto max-w-7xl px-3 sm:px-6 pb-8">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-3 overflow-hidden" data-aos="fade-up">
+        <%- settings.ad_banner_bottom %>
+      </div>
+    </div>
+  <% } %>
+
+  <%- include("partials/footer", { settings: settings || {} }) %>
+  <%- include("partials/toasts") %>
+
+  <!-- CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="/public/js/spa.js"></script>
+  <script src="/public/js/home.js"></script>
+  <script src="/public/js/watch.js"></script>
+  <script src="/public/js/admin.js"></script>
+</body>
+</html>
