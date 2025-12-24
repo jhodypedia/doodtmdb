@@ -1,0 +1,38 @@
+/* smooth */
+html { scroll-behavior: smooth; }
+* { -webkit-tap-highlight-color: transparent; }
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-sheen::before{
+  content:"";
+  position:absolute; inset:-2px;
+  background: radial-gradient(600px circle at var(--x, 10%) var(--y, 10%), rgba(255,255,255,.18), transparent 40%);
+  opacity:.7; pointer-events:none;
+}
+
+.skel{
+  background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.12), rgba(255,255,255,.06));
+  background-size: 200% 100%;
+  animation: skel 1.2s infinite linear;
+}
+@keyframes skel { 0%{background-position:0% 0} 100%{background-position:200% 0} }
+
+.theater-mode #playerShell{
+  position: fixed !important;
+  inset: 70px 16px 16px 16px !important;
+  z-index: 60 !important;
+  border-radius: 24px !important;
+}
+.theater-mode body{ overflow:hidden; }
